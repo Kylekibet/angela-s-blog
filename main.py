@@ -6,8 +6,8 @@ from routes.auth import auth_bp
 from routes.posts import posts_bp
 from routes.pages import pages_bp
 import os
-from dotenv import load_env()
-load_env()
+from dotenv import load_dotenv
+load_dotenv()
 
 
 app = Flask(__name__)
