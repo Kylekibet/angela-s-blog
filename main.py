@@ -5,9 +5,10 @@ from extensions import ckeditor, bootstrap, login_manager
 from routes.auth import auth_bp
 from routes.posts import posts_bp
 from routes.pages import pages_bp
+import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 
 db.init_app(app)
