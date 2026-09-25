@@ -6,10 +6,13 @@ from routes.auth import auth_bp
 from routes.posts import posts_bp
 from routes.pages import pages_bp
 import os
+from dotenv import load_env()
+load_env()
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 db.init_app(app)
 ckeditor.init_app(app)
